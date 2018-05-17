@@ -1,0 +1,14 @@
+Install the Node.js in Ubuntu 16.04
+In order to get this version, we just have to use the apt package manager. We should refresh our local package index first, and then install from the repositories:
+$ sudo apt-get update
+$ sudo apt-get install nodejs
+$ sudo apt-get install npm
+
+To Install Express framework:
+$ npm install express
+If you'd like to install it globally (making it available to the other projects using the same Node.js version), you can add the -g flag:
+$ npm install -g express
+
+
+For to uninstall nodejs and npm:
+$ sudo apt-get purge --auto-remove nodejs
