@@ -1,0 +1,37 @@
+<% include header %>
+
+<div class="jumbotron">
+  <h1>Contact Us</h1>
+<% if(message!=null) { %>
+  <% if(message=='sucess') { %>
+    <div class="alert alert-success">
+    <strong>Success!</strong> Email sent successfully!
+    </div>
+  <% }else{ %>
+    <div class="alert alert-danger">
+    <strong>Error!</strong> Some Error Occurred!
+    </div>
+  <% } %>
+<% } %> 
+  <form action="/contactProcess" method="POST">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" name="name" id="name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comments:</label>
+    <textarea rows="5" cols="10" class="form-control" name="comment"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form> 
+</div>
+
+
+
+</div>
+
+<% include footer %>

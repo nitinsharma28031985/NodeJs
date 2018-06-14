@@ -1,0 +1,77 @@
+<% include header %>
+
+<div class="jumbotron">
+  <h1>Articles</h1> 
+<% if(ResultData!=null) { %>
+<div class="alert alert-success">
+<strong>Success!</strong> Article Created with this title: <%= ResultData.title %>
+</div>
+<% } %>
+<% if(message!=null) { %>
+<div class="alert alert-success">
+<strong>Success!</strong> <%= message %>
+</div>
+<% } %>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header"><a href="/addArticle" class="btn btn-primary pull-right">Add New</a></div>
+        <div class="card-body">
+          <% if(AllArticlesData!=null) { %>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Content</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%  AllArticlesData.forEach(function (item) {  %>
+                <tr>
+                  <td><%= item.title %></td>
+                  <td><%= item.content %></td>
+                  <% if(user!=null){ %>
+                    <% if(user.type=='administrator'){ %>
+                    <td>
+                    <a class="editArticle" href="/articleUpdatePage/<%= item._id %>">
+                      <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    |
+                    <a href="#" class="deleteArticle" data-id="<%= item._id %>">
+                      <i class="fa fa-trash-o"></i>
+                    </a>                  
+                    </td>
+                    <% } %>
+                  <% } %>
+                </tr>
+               <% }) %> 
+              </tbody>
+            </table>
+        </div>
+        <% } %><% /*else { %>
+            <div class="alert alert-danger">
+              <strong>Danger!</strong> No Records Found.
+            </div>
+        <% }*/ %>
+        </div> 
+        <div class="card-footer">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+<% include footer %>

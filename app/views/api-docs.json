@@ -1,0 +1,29 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "Node APP Swagger"
+  },
+  "paths": {
+    "/articles": {
+      "get": {
+        "tags": [
+          "article"
+        ],
+        "summary": "Get All Articles from Database",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  }
+}
